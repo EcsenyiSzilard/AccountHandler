@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>List of bills</h1>
+<div th:each="bill : ${actualBills}">
+    <a th:with="id=${bill.id}" th:href="@{${'/bills/' + id}}" th:text="${bill.accountNumber}">Order ID</a>
+    <a th:text="${bill.amount}">Title ...</a>
+    <a th:text="${bill.currency}">Text ...</a>
+</div>
+<div id="container" class="clear">
+    <nav>
+        <ul>
+            <button onclick="location.href = 'http://localhost:8080/doTransaction';" id="myButton" class="float-left submit-button" > Transfer Money</button>
+        </ul>
+    </nav>
+</div>
+<figcaption>
+    <h2>Aggregated history of bills</h2>
+</figcaption>
+<div th:each="registration: ${aggregatedHistory}">
+    <a th:text="${registration.content}">Text ...</a>
+</div>
+<div class="wrapper row4">
+    <footer id="copyright" class="clear">
+        <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">Account Handler</a></p>
+    </footer>
+</div>
+</body>
+</html>

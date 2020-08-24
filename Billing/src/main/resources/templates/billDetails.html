@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<div class="wrapper row1">
+    <header id="header" class="clear">
+        <div id="hgroup">
+            <h1>Bill Details</h1>
+            <h2>View the selected account information</h2>
+        </div>
+    </header>
+</div>
+<body>
+<div class="wrapper row2">
+    <div id="container" class="clear">
+        <nav>
+            <ul>
+                <li>Account Number: <a th:text="${bill.accountNumber}"></a></li>
+                <li>Amount: <a th:text="${bill.amount}"></a></li>
+                <li>Currency: <a th:text="${bill.currency}"></a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div class="wrapper row3">
+    <form action="#" th:action="@{/updateAmount/} + ${bill.id}" th:object="${bill}" method="post">
+        <p>Give the new account number <input type="text" th:field="*{accountNumber}" /></p>
+        <p>Currency: <a th:text="*{currency}"> </a></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</div>
+<div class="wrapper row4">
+    <footer id="copyright" class="clear">
+        <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">Account Handler</a></p>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Transaction Handler</title>
+</head>
+<body>
+<div class="wrapper row2">
+    <div id="container" class="clear">
+        <nav>
+            <form action="#" th:action="@{/doTransaction/}" th:object="${transaction}" method="post">
+                <p>Which account do you want to transfer to? <input type="text" th:field="${transaction.accountNumber}" /></p>
+                <p>How much would you like to transfer? <input type="text" th:field="${transaction.value}" /></p>
+                <p>Currency:
+                    <select th:field="${transaction.currency}">
+                        <option th:value="'HUF'" th:text="HUF"></option>
+                        <option th:value="'USD'" th:text="USD"></option>
+                        <option th:value="'CAD'" th:text="CAD"></option>
+                    </select>
+                </p>
+                <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+            </form>
+        </nav>
+    </div>
+</div>
+<div class="wrapper row4">
+    <footer id="copyright" class="clear">
+        <p class="fl_left">Copyright &copy; 2020 - All Rights Reserved - <a href="#">Account Handler</a></p>
+    </footer>
+</div>
+</body>
+</html>
